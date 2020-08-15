@@ -1,9 +1,10 @@
 {
-  "name": "backend",
+  "name": "software-engineering-s2-2020",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "ser.js",
   "scripts": {
+    "start": "nodemon './seer/backend.server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,5 +19,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kit-foster/software-engineering-s2-2020"
   }
 }
