@@ -18,9 +18,17 @@ router.route('/register').post((req, res) => {
   const affiliation = req.body.affiliation;
   const role = req.body.role;
   const gender = req.body.gender;
-  const age = req.body.age;
+  const age = Number(req.body.age);
 
-  const newUser = new User({login, password, name, email, affiliation, role, gender, age});
+  const newUser = new User({
+    login, 
+    password, 
+    name, 
+    email, 
+    affiliation, 
+    role, 
+    gender, 
+    age});
 
   newUser.save()
     .then(() => res.json('User added!'))
