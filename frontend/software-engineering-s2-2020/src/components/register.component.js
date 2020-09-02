@@ -23,7 +23,7 @@ export default class RegisterUser extends Component {
             affiliation: '',
             role: '',
             gender: '',
-            age: ''
+            age: 2
         };
     }
 
@@ -81,7 +81,7 @@ export default class RegisterUser extends Component {
         const newUser = {
             login: this.state.login,
             password: this.state.password,
-            name: this.state.user,
+            name: this.state.name,
             email: this.state.email,
             affiliation: this.state.affiliation,
             role: this.state.role,
@@ -91,21 +91,21 @@ export default class RegisterUser extends Component {
 
         console.log(newUser);
 
-        axios.post('http://localhost:5000/user/register', newUser)
+        axios.post('HTTP://localhost:5000/user/register/', newUser)
             .then(res => console.log(res.data))
             .catch(err => {
                 console.log(err)
             });
 
         this.setState({
-            username: '',
+            login: '',
             password: '',
             name: '',
             email: '',
             affiliation: '',
             role: '',
             gender: '',
-            age: ''            
+            age: 2           
         });
     }
 
@@ -185,7 +185,7 @@ export default class RegisterUser extends Component {
 
                     <div className="form-group">
                         <label>Age: </label>
-                        <input type = "text"
+                        <input type = "number"
                             className="form-control"
                             value={this.state.age}
                             onChange={this.onChangeAge}
