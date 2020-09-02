@@ -111,7 +111,7 @@ export default class RegisterUser extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h3>Create New User</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
@@ -177,7 +177,6 @@ export default class RegisterUser extends Component {
                     <div className="form-group">
                         <label>Gender: </label>
                         <input type = "text"
-                            required
                             className="form-control"
                             value={this.state.gender}
                             onChange={this.onChangeGender}
@@ -187,7 +186,6 @@ export default class RegisterUser extends Component {
                     <div className="form-group">
                         <label>Age: </label>
                         <input type = "text"
-                            required
                             className="form-control"
                             value={this.state.age}
                             onChange={this.onChangeAge}
