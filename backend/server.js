@@ -4,11 +4,13 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
+const bodyParser = require("body-parser");
 
 const app = express();
 
 app.use(morgan('tiny'));
 app.use(cors());
+app.use(bodyParser.json());
 
 // Configure Mongo
 const db = 'mongodb+srv://seer01:seer01@seer01.o5sfj.mongodb.net/seer?retryWrites=true&w=majority';
