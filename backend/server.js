@@ -37,11 +37,10 @@ const server = app.listen(PORT, () => {
 });
 
 // load routes
-// app.get('/', (req,res) => {
-//     res.send({ok: true});
-// });
 const userRouter = require('./routes/user');
-
 app.use('/user', userRouter);
+
+const searchRouter = require('./routes/search');
+app.use('/search', searchRouter);
 
 module.exports = server;
