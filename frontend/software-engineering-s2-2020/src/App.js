@@ -1,34 +1,32 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
+import { Component } from 'react';
 
 import Navbar from "./components/navbar.component";
 import RegisterUser from "./components/register.component";
 import About from "./components/about.component";
 import Login from "./components/login.component";
 import Submit from "./components/submit.component";
-import HomepageSearch from "./components/homepage-search.component";
+//import HomepageSearch from "./components/homepage-search.component";
+import Homepage from "./components/homepage.component";
 
-function App() {
-  return (
-    <Router>
-      <div className='container'>
-        <Navbar />
-        <br/>
-        <Route path="/about" component={About} />
-        <br/>
-        <Route path="/submit" component={Submit} />
-        <br/>
-        <Route path="/login" component={Login} />
-        <br/>
-        <Route path="/user" component={RegisterUser} />
-      </div>
-      <div className="container">
-      <HomepageSearch></HomepageSearch>
-      </div>
-    </Router>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/about" component={About} />
+            <Route path="/submit" component={Submit} />
+            <Route path="/login" component={Login} />
+            <Route path="/user" component={RegisterUser} />
+            <Route path="/" component={Homepage} />
+          </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
