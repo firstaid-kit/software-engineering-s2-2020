@@ -31,13 +31,17 @@ mongoose
 // Specify which port and start listening
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
-    debug('listening on ' + PORT);
-    console.log('listening on ' + PORT);
-});
+// const server = app.listen(PORT, () => {
+//     debug('listening on ' + PORT);
+//     console.log('listening on ' + PORT);
+// });
 
 // load routes
-app.get('/', (req, res) => res.render('../frontend/software-engineering-s2-2020/src/App'))
+app
+    .set('views', __dirname + '/views')
+    .set('view engine', 'jsx')
+    .get('/', (req, res) => res.render('../frontend/software-engineering-s2-2020/src/App'))
+    .listen(PORT, () => console.log('Listening on ' + PORT))
 
 const userRouter = require('./routes/user');
 
