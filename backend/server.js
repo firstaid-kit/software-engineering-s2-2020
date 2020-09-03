@@ -47,4 +47,4 @@ const userRouter = require('./routes/user');
 
 app.use('/user', userRouter);
 
-module.exports = server;
+module.exports = app;
