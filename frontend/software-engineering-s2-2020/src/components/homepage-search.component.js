@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -38,8 +38,9 @@ export default class HomepageSearch extends Component {
     }
 
     onSubmit(e) {
+        console.log("submit function called");
         e.preventDefault();
-
+    
         const search = {
             description: this.state.description,
             dateFrom: this.state.dateFrom,
@@ -49,8 +50,11 @@ export default class HomepageSearch extends Component {
         console.log(search);
 
         // TO DO:
-        // axios.post(insertroute, search)
-        //     .then(res => console.log(res.data));
+        axios.post('HTTP://localhost:5000/search/newSearch/', search)
+            .then(res => console.log(res.data))
+            .catch(err => {
+                console.log(err)
+            })
         // window.location = '/';
     }
 
@@ -88,9 +92,8 @@ export default class HomepageSearch extends Component {
 
                     <div className="form-group">
                         <input type="submit"
-                            className="btn btn-primary"
                             value="Go"
-                            />
+                            className="btn btn-primary"/>
                     </div>
                 </form>
             </div>
