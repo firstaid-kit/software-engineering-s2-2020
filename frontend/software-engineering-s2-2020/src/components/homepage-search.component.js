@@ -4,6 +4,56 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class HomepageSearch extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onChangeDescription = this.onChangeDescription.bind(this);
+        this.onChangeDateFrom = this.onChangeDateFrom.bind(this);
+        this.onChangeDateTo = this.onChangeDateTo.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
+        this.state = {
+            description: '',
+            dateFrom: new Date(),
+            dateTo: new Date()
+        };
+    }
+
+    onChangeDescription(e) {
+        this.setState({
+            description: e.target.value
+        });
+    }
+
+    onChangeDateFrom(date) {
+        this.setState({
+            dateFrom: date
+        });
+    }
+
+    onChangeDateTo(date) {
+        this.setState({
+            dateTo: date
+        });
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+
+        const search = {
+            description: this.state.description,
+            dateFrom: this.state.dateFrom,
+            dateTo: this.state.dateTo
+        }
+
+        console.log(search);
+
+        // TO DO:
+        // axios.post(insertroute, search)
+        //     .then(res => console.log(res.data));
+        // window.location = '/';
+    }
+
     render() {
         return (
             <div>
@@ -14,8 +64,8 @@ export default class HomepageSearch extends Component {
                     <input type="text"
                             required
                             className="form-control"
-                            //value={}
-                            //onChange={}
+                            value={this.state.description}
+                            onChange={this.onChangeDescription}
                             />
                     </div>
                    
@@ -23,15 +73,15 @@ export default class HomepageSearch extends Component {
                         <label>Date Range: </label>
                         <div>
                             <DatePicker
-                                //selected={this.state.date}
-                                //onChange={this.onChangeDate}
+                                selected={this.state.dateFrom}
+                                onChange={this.onChangeDateFrom}
                                 />
                         </div>
                         <label> to </label>
                         <div>
                             <DatePicker
-                                //selected={this.state.date}
-                                //onChange={this.onChangeDate}
+                                selected={this.state.dateTo}
+                                onChange={this.onChangeDateTo}
                                 />
                         </div>
                     </div>
