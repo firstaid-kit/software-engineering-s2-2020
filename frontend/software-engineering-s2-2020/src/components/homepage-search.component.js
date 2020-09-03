@@ -38,7 +38,6 @@ export default class HomepageSearch extends Component {
     }
 
     onSubmit(e) {
-        console.log("submit function called");
         e.preventDefault();
     
         const search = {
@@ -55,14 +54,14 @@ export default class HomepageSearch extends Component {
             .catch(err => {
                 console.log(err)
             })
-        // window.location = '/';
+        window.location = '/search';
     }
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h3>Search</h3>
-                <form>
+                <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                     <label>Description: </label>
                     <input type="text"
@@ -81,6 +80,8 @@ export default class HomepageSearch extends Component {
                                 onChange={this.onChangeDateFrom}
                                 />
                         </div>
+                    </div>
+                    <div className="form-group">
                         <label> to </label>
                         <div>
                             <DatePicker
@@ -93,7 +94,7 @@ export default class HomepageSearch extends Component {
                     <div className="form-group">
                         <input type="submit"
                             value="Go"
-                            className="btn btn-primary"/>
+                            className="btn btn-primary" />
                     </div>
                 </form>
             </div>

@@ -10,6 +10,7 @@ import About from "./components/about.component";
 import Login from "./components/login.component";
 import Submit from "./components/submit.component";
 import Homepage from "./components/homepage.component";
+import Search from "./components/search-results.component";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path="/submit" component={Submit} />
             <Route path="/login" component={Login} />
             <Route path="/user" component={RegisterUser} />
+            <Route path="/search" component={Search} />
             <Route path="/" component={Homepage} />
           </Switch>
       </Router>
