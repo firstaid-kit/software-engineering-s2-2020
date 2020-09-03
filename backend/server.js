@@ -37,9 +37,8 @@ const server = app.listen(PORT, () => {
 });
 
 // load routes
-// app.get('/', (req,res) => {
-//     res.send({ok: true});
-// });
+app.get('/', (req, res) => res.render('../frontend/software-engineering-s2-2020/src/App'))
+
 const userRouter = require('./routes/user');
 
 app.use('/user', userRouter);
