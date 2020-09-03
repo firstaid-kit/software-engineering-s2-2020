@@ -24,9 +24,9 @@
     },
     "scripts": {
       "start": "(cd frontend/software-engineering-s2-202 && react-scripts start) & (cd backend && nodemon server.js)",
-      "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject"
+      "build": "(cd frontend/software-engineering-s2-202 && react-scripts build)",
+      "test": "(cd frontend/software-engineering-s2-202 && react-scripts test)",
+      "eject": "(cd frontend/software-engineering-s2-202 && react-scripts eject)"
     },
     "eslintConfig": {
       "extends": "react-app"
