@@ -23,10 +23,10 @@
       "nodemon": "^2.0.4"
     },
     "scripts": {
-      "start": "(cd frontend/software-engineering-s2-202 && react-scripts start) & (cd backend && nodemon server.js)",
-      "build": "(cd frontend/software-engineering-s2-202 && react-scripts build)",
-      "test": "(cd frontend/software-engineering-s2-202 && react-scripts test)",
-      "eject": "(cd frontend/software-engineering-s2-202 && react-scripts eject)"
+      "start": "(cd frontend/software-engineering-s2-2020 && react-scripts start) & (cd backend && nodemon server.js)",
+      "build": "(cd frontend/software-engineering-s2-2020 && react-scripts build)",
+      "test": "(cd frontend/software-engineering-s2-2020 && react-scripts test)",
+      "eject": "(cd frontend/software-engineering-s2-2020 && react-scripts eject)"
     },
     "eslintConfig": {
       "extends": "react-app"
