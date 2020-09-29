@@ -9,6 +9,12 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:login_1').get((req, res) => {
+  User.findOne()
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json('Error: ' + err));
+})
+
 // handles HTTP post requests, allows saving of users with save method
 router.route('/register').post((req, res) => {
   const login = req.body.login;
