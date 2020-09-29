@@ -104,6 +104,45 @@ export default class HomepageSearch extends Component {
                         BDD
                         </label>
                     </div>
+
+                    <div className="form-check">
+                        <label>
+                            <input
+                                type="radio"
+                                value="BDD"
+                                checked={this.state.selectedTopic === "BDD"}
+                                onChange={this.handleTopicChange}
+                                className="form-check-input"
+                                />
+                        Pair Programming
+                        </label>
+                    </div>
+
+                    <div className="form-check">
+                        <label>
+                            <input
+                                type="radio"
+                                value="BDD"
+                                checked={this.state.selectedTopic === "BDD"}
+                                onChange={this.handleTopicChange}
+                                className="form-check-input"
+                                />
+                        Planning Poker
+                        </label>
+                    </div>
+
+                    <div className="form-check">
+                        <label>
+                            <input
+                                type="radio"
+                                value="BDD"
+                                checked={this.state.selectedTopic === "BDD"}
+                                onChange={this.handleTopicChange}
+                                className="form-check-input"
+                                />
+                        Daily Stand Up
+                        </label>
+                    </div>
                    
                     <div className="form-group">
                         <label>Date Range: </label>
