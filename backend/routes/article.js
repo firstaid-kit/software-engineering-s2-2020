@@ -7,21 +7,4 @@ router.route('/').get((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
-
-router.route('/newSearch').post((req, res) => {
-    const description = req.body.description;
-    const dateFrom = req.body.dateFrom;
-    const dateTo = req.body.dateTo;
-
-    const newSearch = new Search({
-        description,
-        dateFrom,
-        dateTo
-    });
-
-    newSearch.save()
-        .then(() => res.json('Search saved!'))
-        .catch(err => res.status(400).json('Error: ') + err);
-});
-
 module.exports = router;
