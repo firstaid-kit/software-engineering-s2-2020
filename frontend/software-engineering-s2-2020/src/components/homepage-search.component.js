@@ -14,6 +14,7 @@ export default class HomepageSearch extends Component {
 
         this.state = {
             description: '',
+            selectedTopic: "TDD",
             dateFrom: new Date(),
             dateTo: new Date()
         };
@@ -22,6 +23,12 @@ export default class HomepageSearch extends Component {
     onChangeDescription(e) {
         this.setState({
             description: e.target.value
+        });
+    }
+
+    handleTopicChange = changeEvent => {
+        this.setState({
+            selectedTopic: changeEvent.target.value
         });
     }
 
@@ -65,11 +72,37 @@ export default class HomepageSearch extends Component {
                     <div className="form-group">
                     <label>Description: </label>
                     <input type="text"
-                            required
                             className="form-control"
                             value={this.state.description}
                             onChange={this.onChangeDescription}
                             />
+                    </div>
+
+                    <label>Software Engineering Topics: </label>
+                    <div className="form-check">
+                        <label>
+                            <input
+                                type="radio"
+                                value="TDD"
+                                checked={this.state.selectedTopic === "TDD"}
+                                onChange={this.handleTopicChange}
+                                className="form-check-input"
+                                />
+                        TDD
+                        </label>
+                    </div>
+
+                    <div className="form-check">
+                        <label>
+                            <input
+                                type="radio"
+                                value="BDD"
+                                checked={this.state.selectedTopic === "BDD"}
+                                onChange={this.handleTopicChange}
+                                className="form-check-input"
+                                />
+                        BDD
+                        </label>
                     </div>
                    
                     <div className="form-group">
