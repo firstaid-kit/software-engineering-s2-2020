@@ -44,7 +44,9 @@ app
     .listen(PORT, () => console.log('Listening on ' + PORT))
 
 const userRouter = require('./routes/user');
-
 app.use('/user', userRouter);
+
+const searchRouter = require('./routes/search');
+app.use('/search', searchRouter);
 
 module.exports = app;
