@@ -46,7 +46,7 @@ function Login(props) {
                     <input type="password"
                         className="form-control"
                         id="password"
-                        placeholder="Enter password"
+                        placeholder="Enter your password"
                         value={state.password}
                         onChange={handleChange}
                     />
