@@ -22,6 +22,8 @@ export default class Search extends Component {
             });
     }
 
+    // FELIX: there are two places that need to be edited to display the search results:
+    // this function (displayArticles) and where displayArticles is called in the render function
     displayArticles = (articles) => {
         if(!articles.length) return null;
 
