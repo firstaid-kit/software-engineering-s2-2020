@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import Checkbox from './checkbox.component';
+
+const OPTIONS = ["TDD", "BDD", "Agile", "Kanban"];
 
 export default class HomepageSearch extends Component {
     constructor(props) {
@@ -14,7 +17,13 @@ export default class HomepageSearch extends Component {
 
         this.state = {
             description: '',
-            selectedTopic: "TDD",
+            checkboxes: OPTIONS.reduce(
+                (options, option) => ({
+                    ...options,
+                    [option]: false
+                }),
+                {}
+            ),
             dateFrom: new Date(),
             dateTo: new Date()
         };
@@ -26,11 +35,27 @@ export default class HomepageSearch extends Component {
         });
     }
 
-    handleTopicChange = changeEvent => {
-        this.setState({
-            selectedTopic: changeEvent.target.value
-        });
+    handleCheckboxChange = changeEvent => {
+        const {name} = changeEvent.target;
+
+       this.setState(prevState => ({
+           checkboxes: {
+               ...prevState.checkboxes,
+               [name]: !prevState.checkboxes[name]
+           }
+       }));
     }
+    
+    createCheckbox = option => (
+        <Checkbox
+            label={option}
+            isSelected={this.state.checkboxes[option]}
+            onCheckboxChange={this.handleCheckboxChange}
+            key={option}
+            />
+    );
+
+    createCheckboxes = () => OPTIONS.map(this.createCheckbox);
 
     onChangeDateFrom(date) {
         this.setState({
@@ -46,16 +71,26 @@ export default class HomepageSearch extends Component {
 
     onSubmit(e) {
         e.preventDefault();
+
+        const selectedCheckboxes = [];
+        Object.keys(this.state.checkboxes)
+            .filter(checkbox => this.state.checkboxes[checkbox])
+            .forEach(checkbox => {
+                console.log(checkbox, "is selected");
+                selectedCheckboxes.push(checkbox);
+            })
     
         const search = {
             description: this.state.description,
+            checkboxes: selectedCheckboxes,
             dateFrom: this.state.dateFrom,
             dateTo: this.state.dateTo
         }
 
+        
+
         console.log(search);
 
-        // TO DO:
         axios.post('HTTP://localhost:5000/search/newSearch/', search)
             .then(res => console.log(res.data))
             .catch(err => {
@@ -79,70 +114,7 @@ export default class HomepageSearch extends Component {
                     </div>
 
                     <label>Software Engineering Topics: </label>
-                    <div className="form-check">
-                        <label>
-                            <input
-                                type="radio"
-                                value="TDD"
-                                checked={this.state.selectedTopic === "TDD"}
-                                onChange={this.handleTopicChange}
-                                className="form-check-input"
-                                />
-                        TDD
-                        </label>
-                    </div>
-
-                    <div className="form-check">
-                        <label>
-                            <input
-                                type="radio"
-                                value="BDD"
-                                checked={this.state.selectedTopic === "BDD"}
-                                onChange={this.handleTopicChange}
-                                className="form-check-input"
-                                />
-                        BDD
-                        </label>
-                    </div>
-
-                    <div className="form-check">
-                        <label>
-                            <input
-                                type="radio"
-                                value="BDD"
-                                checked={this.state.selectedTopic === "BDD"}
-                                onChange={this.handleTopicChange}
-                                className="form-check-input"
-                                />
-                        Pair Programming
-                        </label>
-                    </div>
-
-                    <div className="form-check">
-                        <label>
-                            <input
-                                type="radio"
-                                value="BDD"
-                                checked={this.state.selectedTopic === "BDD"}
-                                onChange={this.handleTopicChange}
-                                className="form-check-input"
-                                />
-                        Planning Poker
-                        </label>
-                    </div>
-
-                    <div className="form-check">
-                        <label>
-                            <input
-                                type="radio"
-                                value="BDD"
-                                checked={this.state.selectedTopic === "BDD"}
-                                onChange={this.handleTopicChange}
-                                className="form-check-input"
-                                />
-                        Daily Stand Up
-                        </label>
-                    </div>
+                    {this.createCheckboxes()}
                    
                     <div className="form-group">
                         <label>Date Range: </label>

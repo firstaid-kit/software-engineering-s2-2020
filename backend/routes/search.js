@@ -3,11 +3,13 @@ let Search = require('../schemas/search_schema');
 
 router.route('/newSearch').post((req, res) => {
     const description = req.body.description;
+    const checkboxes = req.body.checkboxes;
     const dateFrom = req.body.dateFrom;
     const dateTo = req.body.dateTo;
 
     const newSearch = new Search({
         description,
+        checkboxes,
         dateFrom,
         dateTo
     });
