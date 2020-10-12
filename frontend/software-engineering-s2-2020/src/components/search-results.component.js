@@ -10,6 +10,8 @@ export default class Search extends Component {
         };
     }
 
+    
+
     getArticles = () => {
         axios.get('HTTP://localhost:5000/article')
             .then((response) => {
@@ -38,6 +40,7 @@ export default class Search extends Component {
     };
 
     componentDidMount = () => {
+        console.log(this.props);
         this.getArticles();
     };
 

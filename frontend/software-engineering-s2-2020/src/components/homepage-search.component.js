@@ -61,7 +61,7 @@ export default class HomepageSearch extends Component {
             .catch(err => {
                 console.log(err)
             })
-        window.location = '/search';
+        window.location = '/search?a=' + selectedCheckboxes;
     }
 
     render() {
