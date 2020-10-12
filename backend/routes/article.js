@@ -13,12 +13,14 @@ router.route('/').get((req, res) => {
     const author = req.body.author;
     const year = req.body.year;
     const doi = req.body.doi;
+    const topics= req.body.topics;
 
     const newArticle = new Article({
         title,
         author,
         year,
-        doi
+        doi,
+        topics
     });
 
     newArticle.save()
