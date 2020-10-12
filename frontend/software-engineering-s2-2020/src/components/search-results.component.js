@@ -10,18 +10,69 @@ export default class Search extends Component {
         };
     }
 
-    
-
     getArticles = () => {
-        axios.get('HTTP://localhost:5000/article')
-            .then((response) => {
-                const data = response.data;
-                this.setState({articles: data})
-                console.log('data has been recevied');
-            })
-            .catch(() => {
-                alert('Error retrieving data');
-            });
+        const searchTopics = this.props.location.search.substring(3).split(',');
+        
+        for (var i = 0; i < searchTopics.length; i++) {
+            if (searchTopics[i] === "TDD") {
+                axios.get('HTTP://localhost:5000/article/TDDarticles')
+                    .then((response) => {
+                        const data = response.data;
+                        this.setState({articles: data})
+                        console.log("tdd articles retrieved");
+                    })
+                    .catch(() => {
+                        alert('Error retrieving data');
+                    });
+            }
+
+            if(searchTopics[i] === "BDD") {
+                axios.get('HTTP://localhost:5000/article/BDDarticles')
+                    .then((response) => {
+                        const data = response.data;
+                        this.setState({articles: data})
+                        console.log("bdd articles retrieved");
+                    })
+                    .catch(() => {
+                        alert('Error retrieving data');
+                    });
+            }
+
+            if(searchTopics[i] === "Agile") {
+                axios.get('HTTP://localhost:5000/article/agileArticles')
+                    .then((response) => {
+                        const data = response.data;
+                        this.setState({articles: data})
+                        console.log("agile articles retrieved");
+                    })
+                    .catch(() => {
+                        alert('Error retrieving data');
+                    });
+            }
+
+            if(searchTopics[i] === "Kanban") {
+                axios.get('HTTP://localhost:5000/article/kanbanArticles')
+                    .then((response) => {
+                        const data = response.data;
+                        this.setState({articles: data})
+                        console.log("kanban articles retrieved");
+                    })
+                    .catch(() => {
+                        alert('Error retrieving data');
+                    });
+            }
+        }
+        
+        // function for retrieving all articles from DB:
+        // axios.get('HTTP://localhost:5000/article')
+        //     .then((response) => {
+        //         const data = response.data;
+        //         this.setState({articles: data})
+        //         console.log('data has been recevied');
+        //     })
+        //     .catch(() => {
+        //         alert('Error retrieving data');
+        //     });
     }
 
     // FELIX: there are two places that need to be edited to display the search results: AND ADD INTO A TABLE
