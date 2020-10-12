@@ -7,6 +7,7 @@ const articleSchema = new Schema({
     author: { type: String, required: true},
     year: { type: String, required: true},
     doi: {type: String, required: true},
+    topics: {type: Array, required: true}
 }, {
     timestamps: true,
 });
