@@ -22,18 +22,18 @@ export default class Search extends Component {
             });
     }
 
-    // FELIX: there are two places that need to be edited to display the search results:
+    // FELIX: there are two places that need to be edited to display the search results: AND ADD INTO A TABLE
     // this function (displayArticles) and where displayArticles is called in the render function
     displayArticles = (articles) => {
         if(!articles.length) return null;
 
         return articles.map((article, index) => (
-            <div keys={index}>
-                <p>{article.author}</p>
-                <p>{article.title}</p>
-                <p>{article.year}</p>
-                <p>{article.doi}</p>
-            </div>
+            <tr keys={index}>
+            <td>{article.author}</td>
+            <td>{article.title}</td>
+            <td>{article.year}</td>
+            <td>{article.doi}</td>
+          </tr>
         ));
     };
 
@@ -45,7 +45,21 @@ export default class Search extends Component {
         return (
             <div>
                 <h3>Displaying your search results</h3>
-                    {this.displayArticles(this.state.articles)}
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Author</th>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Digital object identifier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.displayArticles(this.state.articles)}
+                    </tbody>
+                </table>
+            </div>
             </div>
         );
     }
