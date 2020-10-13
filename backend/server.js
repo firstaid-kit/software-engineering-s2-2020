@@ -39,7 +39,7 @@ app.use('/article', articleRouter);
 
 // handle production
 if (process.env.NODE_ENV === 'production') {
-    res.sendFile(path.resolve(__dirname, 'frontend/software-engineering-s2-2020', 'build','index.html'));
+    res.sendFile(path.resolve(__dirname, 'frontend/software-engineering-s2-2020', 'build','index.js'));
 }
 
 // Specify which port and start listening
