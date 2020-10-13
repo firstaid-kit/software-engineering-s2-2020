@@ -15,6 +15,7 @@ export default class Search extends Component {
 
         if (searchTopics.length == 0) {
             axios.get('HTTP://localhost:5000/article')
+
             .then((response) => {
                 const data = response.data;
                 this.setState({articles: data})
@@ -93,6 +94,7 @@ export default class Search extends Component {
 
     componentDidMount = () => {
         console.log(this.props);
+
         this.getArticles();
     };
 
