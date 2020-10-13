@@ -25,7 +25,7 @@
     "scripts": {
       "start": "(cd frontend/software-engineering-s2-2020 && react-scripts start) & (cd backend && node server.js)",
       "build": "(cd frontend/software-engineering-s2-2020 && react-scripts build)",
-      "test": "(cd backend && react-scripts test && ./node_modules/.bin/mocha)",
+      "test": "(cd backend && ./node_modules/.bin/mocha)",
       "eject": "(cd frontend/software-engineering-s2-2020 && react-scripts eject)"
     },
     "eslintConfig": {
