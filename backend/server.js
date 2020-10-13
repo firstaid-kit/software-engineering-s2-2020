@@ -27,22 +27,7 @@ mongoose
     .then(() => console.log("Mongo connected"))
     .catch(err => console.log(err));
 
-
-// Specify which port and start listening
-const PORT = process.env.PORT || 5000;
-
-// const server = app.listen(PORT, () => {
-//     debug('listening on ' + PORT);
-//     console.log('listening on ' + PORT);
-// });
-
 // load routes
-app
-    .set('views', __dirname + '/views')
-    .set('view engine', 'jsx')
-    .get('/', (req, res) => res.render('../frontend/software-engineering-s2-2020/src/App'))
-    .listen(PORT, () => console.log('Listening on ' + PORT))
-
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
 
@@ -51,5 +36,14 @@ app.use('/search', searchRouter);
 
 const articleRouter = require('./routes/article');
 app.use('/article', articleRouter);
+
+// handle production
+if (process.env.NODE_ENV === 'production') {
+    res.sendFile(path.resolve(__dirname, 'frontend/software-engineering-s2-2020', 'build','index.html'));
+}
+
+// Specify which port and start listening
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log('Listening on ' + PORT))
 
 module.exports = app;
