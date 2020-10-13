@@ -1,2 +1,7 @@
 */node_modules
 */package-lock.json
+/.idea/
+/package-lock.json
+/node_modules/
+/frontend/software-engineering-s2-2020/debug.log
+/frontend/software-engineering-s2-2020/package-lock.json
