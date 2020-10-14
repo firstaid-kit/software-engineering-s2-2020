@@ -25,10 +25,10 @@
   },
   "scripts": {
     "start": "concurrently \"npm run frontend\" \"npm run backend\"",
-    "build": "react-scripts build --prefix frontend/software-engineering-s2-2020",
+    "react-build": "react-scripts build --prefix frontend/software-engineering-s2-2020",
     "frontend": "react-scripts start --prefix frontend/software-engineering-s2-2020",
     "backend": "node server.js --prefix backend",
-    "frontend-build": "npm install --prefix frontend/software-engineering-s2-2020",
+    "frontend-build": "npm install --prefix frontend/software-engineering-s2-2020 && npm run react-build",
     "backend-build": "npm install --prefix backend",
     "heroku-postbuild": "concurrently \"npm run frontend-build\" \"npm run backend-build\"",
     "test": "(cd backend && ./node_modules/.bin/mocha)",
