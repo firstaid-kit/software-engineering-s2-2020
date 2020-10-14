@@ -28,8 +28,8 @@
     "react-build": "cd frontend/software-engineering-s2-2020 && react-scripts build ",
     "frontend": "cd frontend/software-engineering-s2-2020 && react-scripts start",
     "backend": "cd backend && node server.js",
-    "frontend-build": "npm install --prefix frontend/software-engineering-s2-2020 && npm run react-build",
-    "backend-build": "npm install --prefix backend",
+    "frontend-build": "cd frontend/software-engineering-s2-2020 && npm install && npm run react-build",
+    "backend-build": "cd backend && npm install",
     "heroku-postbuild": "concurrently \"npm run frontend-build\" \"npm run backend-build\"",
     "test": "(cd backend && ./node_modules/.bin/mocha)",
     "eject": "(cd frontend/software-engineering-s2-2020 && react-scripts eject)"
