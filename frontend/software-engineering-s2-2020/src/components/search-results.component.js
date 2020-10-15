@@ -22,7 +22,7 @@ export default class Search extends Component {
                 console.log('data has been recevied 0');
             })
             .catch(() => {
-                alert('Error retrieving data');
+                alert('Error retrieving data 0');
             });
         } else {
             for (var i = 0; i < searchTopics.length; i++) {
