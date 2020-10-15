@@ -11,3 +11,8 @@ deploy:
   keep_history: true
   on:
     branch: main
+
+# blocklist
+branches:
+  except:
+    - HerokuTesting
