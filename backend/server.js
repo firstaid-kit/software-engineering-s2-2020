@@ -35,6 +35,7 @@ const searchRouter = require('./routes/search');
 app.use('/search', searchRouter);
 
 const articleRouter = require('./routes/article');
+const res = require("express");
 app.use('/article', articleRouter);
 
 // handle production
