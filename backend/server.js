@@ -39,9 +39,9 @@ const res = require("express");
 app.use('/article', articleRouter);
 
 // handle production
-if (process.env.NODE_ENV === 'production') {
-    res.sendFile(path.resolve(__dirname, 'frontend/software-engineering-s2-2020', 'build','index.js'));
-}
+// if (process.env.NODE_ENV === 'production') {
+//     res.sendFile(path.resolve(__dirname, 'frontend/software-engineering-s2-2020', 'build','index.html'));
+// }
 
 // Specify which port and start listening
 //const PORT = process.env.PORT || 5000;
