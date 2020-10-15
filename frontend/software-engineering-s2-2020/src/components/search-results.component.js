@@ -14,12 +14,12 @@ export default class Search extends Component {
         const searchTopics = this.props.location.search.substring(3).split(',');
 
         if (searchTopics.length == 0) {
-            axios.get('localhost:5000/article')
+            axios.get('HTTP://localhost:5000/article')
 
             .then((response) => {
                 const data = response.data;
                 this.setState({articles: data})
-                console.log('data has been recevied');
+                console.log('data has been recevied 0');
             })
             .catch(() => {
                 alert('Error retrieving data');
@@ -34,7 +34,7 @@ export default class Search extends Component {
                             console.log("tdd articles retrieved");
                         })
                         .catch(() => {
-                            alert('Error retrieving data');
+                            alert('Error retrieving data 1');
                         });
                 }
     
@@ -46,7 +46,7 @@ export default class Search extends Component {
                             console.log("bdd articles retrieved");
                         })
                         .catch(() => {
-                            alert('Error retrieving data');
+                            alert('Error retrieving data 2');
                         });
                 }
     
@@ -58,7 +58,7 @@ export default class Search extends Component {
                             console.log("agile articles retrieved");
                         })
                         .catch(() => {
-                            alert('Error retrieving data');
+                            alert('Error retrieving data 3');
                         });
                 }
     
@@ -70,7 +70,7 @@ export default class Search extends Component {
                             console.log("kanban articles retrieved");
                         })
                         .catch(() => {
-                            alert('Error retrieving data');
+                            alert('Error retrieving data 4');
                         });
                 }
             }
