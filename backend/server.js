@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require("body-parser");
+const res = require("express");
 
 const app = express();
 
@@ -27,6 +28,17 @@ mongoose
     .then(() => console.log("Mongo connected"))
     .catch(err => console.log(err));
 
+/* work on serving react from express
+
+    // Serve the static files from the React app
+    app.use(express.static(path.join(__dirname, '/../frontend/software-engineering-s2-2020/build')));
+    
+    app.get('*', (req,res) =>{
+        res.sendFile(path.join(__dirname+'/../frontend/software-engineering-s2-2020/build/index.html'));
+    });
+
+*/
+
 // load routes
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
@@ -35,7 +47,6 @@ const searchRouter = require('./routes/search');
 app.use('/search', searchRouter);
 
 const articleRouter = require('./routes/article');
-const res = require("express");
 app.use('/article', articleRouter);
 
 // handle production
