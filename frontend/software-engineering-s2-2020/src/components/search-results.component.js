@@ -14,7 +14,7 @@ export default class Search extends Component {
         const searchTopics = this.props.location.search.substring(3).split(',');
 
         if (searchTopics.length == 0) {
-            axios.get('HTTP://localhost:5000/article')
+            axios.get('localhost:5000/article')
 
             .then((response) => {
                 const data = response.data;
