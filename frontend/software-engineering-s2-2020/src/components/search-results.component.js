@@ -13,7 +13,7 @@ export default class Search extends Component {
     getArticles = () => {
         const searchTopics = this.props.location.search.substring(3).split(',');
 
-        if (searchTopics.length == 0) {
+        if (searchTopics.length === 0) {
             axios.get('HTTP://localhost:5000/article')
 
             .then((response) => {
