@@ -25,8 +25,8 @@
   },
   "scripts": {
     "start": "concurrently \"npm run frontend\" \"npm run backend\"",
-    "react-build": "cd frontend/software-engineering-s2-2020 && npm run build",
-    "frontend": "cd frontend/software-engineering-s2-2020 && react-scripts start",
+    "react-build": "cd frontend/software-engineering-s2-2020 && react-scripts build",
+    "frontend": "cd frontend/software-engineering-s2-2020 && npm run start",
     "backend": "cd backend && node server.js",
     "frontend-build": "cd frontend/software-engineering-s2-2020 && npm install",
     "backend-build": "cd backend && npm install",
