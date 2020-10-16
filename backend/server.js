@@ -28,17 +28,6 @@ mongoose
     .then(() => console.log("Mongo connected"))
     .catch(err => console.log(err));
 
-/* work on serving react from express
-
-    // Serve the static files from the React app
-    app.use(express.static(path.join(__dirname, '/../frontend/software-engineering-s2-2020/build')));
-    
-    app.get('*', (req,res) =>{
-        res.sendFile(path.join(__dirname+'/../frontend/software-engineering-s2-2020/build/index.html'));
-    });
-
-*/
-
 // load routes
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
@@ -50,9 +39,13 @@ const articleRouter = require('./routes/article');
 app.use('/article', articleRouter);
 
 // handle production
-// if (process.env.NODE_ENV === 'production') {
-//     res.sendFile(path.resolve(__dirname, 'frontend/software-engineering-s2-2020', 'build','index.html'));
-// }
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '/../frontend/software-engineering-s2-2020/build')));
+    
+    app.get('*', (req,res) =>{
+        res.sendFile(path.join(__dirname+'/../frontend/software-engineering-s2-2020/build/index.html'));
+    });
+}
 
 // Specify which port and start listening
 //const PORT = process.env.PORT || 5000;

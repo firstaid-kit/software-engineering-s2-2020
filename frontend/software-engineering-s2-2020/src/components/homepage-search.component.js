@@ -91,7 +91,7 @@ export default class HomepageSearch extends Component {
 
         console.log(search);
 
-        axios.post('HTTP://localhost:5000/search/newSearch/', search)
+        axios.post('/search/newSearch/', search)
             .then(res => console.log(res.data))
             .catch(err => {
                 console.log(err)

@@ -14,7 +14,7 @@ export default class Search extends Component {
         const searchTopics = this.props.location.search.substring(3).split(',');
 
         if (searchTopics.length === 0) {
-            axios.get('HTTP://localhost:5000/article')
+            axios.get('/article')
 
             .then((response) => {
                 const data = response.data;
@@ -27,7 +27,7 @@ export default class Search extends Component {
         } else {
             for (var i = 0; i < searchTopics.length; i++) {
                 if (searchTopics[i] === "TDD") {
-                    axios.get('HTTP://localhost:5000/article/TDDarticles')
+                    axios.get('/article/TDDarticles')
                         .then((response) => {
                             const data = response.data;
                             this.setState({articles: data})
@@ -39,7 +39,7 @@ export default class Search extends Component {
                 }
     
                 if(searchTopics[i] === "BDD") {
-                    axios.get('HTTP://localhost:5000/article/BDDarticles')
+                    axios.get('/article/BDDarticles')
                         .then((response) => {
                             const data = response.data;
                             this.setState({articles: data})
@@ -51,7 +51,7 @@ export default class Search extends Component {
                 }
     
                 if(searchTopics[i] === "Agile") {
-                    axios.get('HTTP://localhost:5000/article/agileArticles')
+                    axios.get('/article/agileArticles')
                         .then((response) => {
                             const data = response.data;
                             this.setState({articles: data})
@@ -63,7 +63,7 @@ export default class Search extends Component {
                 }
     
                 if(searchTopics[i] === "Kanban") {
-                    axios.get('HTTP://localhost:5000/article/kanbanArticles')
+                    axios.get('/article/kanbanArticles')
                         .then((response) => {
                             const data = response.data;
                             this.setState({articles: data})

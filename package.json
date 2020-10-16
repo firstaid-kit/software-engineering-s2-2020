@@ -24,7 +24,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "start": "npm run backend",
     "react-build": "cd frontend/software-engineering-s2-2020 && npm run build",
     "frontend": "cd frontend/software-engineering-s2-2020 && npm run start",
     "backend": "cd backend && node server.js",

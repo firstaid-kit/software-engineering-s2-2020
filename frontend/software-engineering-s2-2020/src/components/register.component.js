@@ -91,7 +91,7 @@ export default class RegisterUser extends Component {
 
         console.log(newUser);
 
-        axios.post('HTTP://localhost:5000/user/register/', newUser)
+        axios.post('/user/register/', newUser)
             .then(res => console.log(res.data))
             .catch(err => {
                 console.log(err)
